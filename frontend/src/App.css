@@ -1,0 +1,46 @@
+#root {
+  width: 100%;
+  border: none;
+}
+
+/* Fixed height = price pane (360) + 4 aggregate panes (150 each), matching
+   the setHeight() calls in App.tsx so the sidebar rows line up with panes. */
+.layout {
+  display: flex;
+  height: 960px;
+}
+
+.chart {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 150px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border, #bfbfbf);
+  font-size: 13px;
+  text-align: left;
+}
+
+.sidebar-row {
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border, #bfbfbf);
+  padding: 8px 10px;
+  overflow: auto;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 2px 0;
+}
