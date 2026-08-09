@@ -1,6 +1,50 @@
-#root {
-  width: 100%;
-  border: none;
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border, #bfbfbf);
+  font-size: 13px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field select {
+  font: inherit;
+  padding: 2px 4px;
+}
+
+.note {
+  color: #6b6375;
+  font-size: 12px;
+}
+
+.pane-toggles {
+  display: flex;
+}
+
+.pane-toggles button {
+  font: inherit;
+  padding: 2px 8px;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--border, #bfbfbf);
+  margin-left: -1px; /* collapse the shared border into one line */
+}
+
+.pane-toggles button:first-child { border-radius: 3px 0 0 3px; margin-left: 0; }
+.pane-toggles button:last-child { border-radius: 0 3px 3px 0; }
+
+.pane-toggles button[aria-pressed='true'] {
+  color: #fff;
+  background: #2196f3;
+  border-color: #2196f3;
+  position: relative; /* keep the active border above its neighbours' */
 }
 
 /* Fixed height = price pane (360) + 4 aggregate panes (150 each), matching
@@ -25,22 +69,31 @@
   text-align: left;
 }
 
+/* Dense on purpose: six panes share the chart height, so a row is ~110px and
+   has to hold a title plus up to five venues without clipping the last one. */
 .sidebar-row {
   box-sizing: border-box;
   border-bottom: 1px solid var(--border, #bfbfbf);
-  padding: 8px 10px;
+  padding: 5px 10px;
   overflow: auto;
+  line-height: 1.25;
 }
 
 .sidebar-title {
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
 }
 
 .sidebar-toggle {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
-  padding: 2px 0;
+  font-size: 12px;
+}
+
+.sidebar-toggle input {
+  width: 12px;
+  height: 12px;
+  margin: 1px 0;
 }
